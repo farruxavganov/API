@@ -1,0 +1,182 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "File API",
+    "version": "1.0.0",
+    "description": "API documentation for file management"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Development server"
+    }
+  ],
+  "paths": {
+    "/api/images": {
+      "post": {
+        "summary": "Upload an image file",
+        "description": "Upload an image file to the server.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/api/videos": {
+      "post": {
+        "summary": "Upload a video file",
+        "description": "Upload a video file to the server.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/ap/texts": {
+      "post": {
+        "summary": "Upload a text file",
+        "description": "Upload a text file to the server.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/api/images/{filename}": {
+      "get": {
+        "summary": "Get an image by filename",
+        "description": "Retrieve an image by its filename.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "filename",
+            "required": true,
+            "description": "The filename of the image to retrieve.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Image not found"
+          }
+        }
+      }
+    },
+    "/api/videos/{filename}": {
+      "get": {
+        "summary": "Get a video by filename",
+        "description": "Retrieve a video by its filename.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "filename",
+            "required": true,
+            "description": "The filename of the video to retrieve.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Video not found"
+          }
+        }
+      }
+    },
+    "/api/texts/{filename}": {
+      "get": {
+        "summary": "Get a text file by filename",
+        "description": "Retrieve a text file by its filename.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "filename",
+            "required": true,
+            "description": "The filename of the text file to retrieve.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Text file not found"
+          }
+        }
+      }
+    }
+  }
+}
+
